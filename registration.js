@@ -60,21 +60,21 @@ module.exports = function (pool) {
         // }
     }
 
-    async function filter(town_tag){
-        if(town_tag === 'all'){
-            "select * from select regnumbers from registration_numbers"
-        }
-        if(town_tag === 'CY'){
-            "select allreg_id from registration_numbers"
-        }
-        if(town_tag === 'CJ'){
-            "select allreg_id from registration_numbers"
-        }
-        if(town_tag === 'CA'){
-            "select allreg_id from registration_numbers"
-        }
+    // async function filter(town_tag){
+    //     if(town_tag === 'all'){
+    //         "select * from select regnumbers from registration_numbers"
+    //     }
+    //     if(town_tag === 'CY'){
+    //         "select allreg_id from registration_numbers"
+    //     }
+    //     if(town_tag === 'CJ'){
+    //         "select allreg_id from registration_numbers"
+    //     }
+    //     if(town_tag === 'CA'){
+    //         "select allreg_id from registration_numbers"
+    //     }
 
-    }
+    // }
     async function deleleBtn() {
         await pool.query('delete from registration_numbers')
     }
