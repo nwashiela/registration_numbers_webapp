@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/registration_number.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="color">
+            <h1>REGISTRATION NUMBERS</h1>
+        </div>
+
+        {{#if messages.info}}
+        <div class="messages">
+            <h1>{{messages.info}}</h1>
+        </div>
+        {{/if}}
+        <br>
+        <form action="/registration" method="POST">
+            <input type="text" class="regNumberEntered" name="regName" placeholder="enter regnumber">
+            <button type="submit" class="addRegNumber btn blue">filter</button>
+            <div class="button">
+                <button type="submit" class="addRegNumber btn blue">Add</button>
+
+                <div class="Button">
+                    <a href="/clearAll" <button class="btn" type="button"> <i class="fa fa-home"></i></button>resert</a>
+
+                </div>
+            </div>
+        </form>
+
+        <div class="filter">
+            <strong>Select Town:</strong>
+
+            <select name="town" id="numbers">
+                <option value="all">selectAll</option>
+                <option value="CY">Bellville</option>
+                <option value="CJ">Paarl</option>
+                <option value="CA">CapeTown</option>
+            </select>
+        </div>
+
+        <hr>
+        <!-- <i>Reg numbers to be added here...</i> -->
+
+        {{!-- <ul> --}}
+        {{#each list}}
+        {{!-- <li> --}}
+        <div class="regNumbers">
+            {{regnumbers}}
+        </div>
+        {{!-- </li> --}}
+        {{/each}}
+        {{!-- </ul> --}}
+        {{!-- <div class="regNumber">
+                CY 124-245
+            </div> --}}
+
+    </div>
+</body>
+
+</html>

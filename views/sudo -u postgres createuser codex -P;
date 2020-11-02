@@ -1,0 +1,9 @@
+sudo -u postgres createuser codex -P;
+
+grant all privileges on database my_products to codex;
+
+registration=> insert into town (town_names, start_with) values ("Bellville", "CY");
+
+registration=> insert into town (town_names, start_with) values ('Paarl', 'CJ');
+
+registration=> insert into town (town_names, start_with) values ('Cape Town', 'CA');
