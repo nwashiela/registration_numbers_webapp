@@ -17,20 +17,18 @@
 
         {{#if messages.info}}
         <div class="messages">
-            <h1>{{messages.info}}</h1>
+            <h2>{{messages.info}}</h2>
         </div>
         {{/if}}
         <br>
         <form action="/registration" method="POST">
             <input type="text" class="regNumberEntered" name="regName" placeholder="enter regnumber">
-            <button type="submit" class="addRegNumber btn blue">filter</button>
+            <button type="submit" class="addRegNumber btn blue">Add</button>
+
+
             <div class="button">
-                <button type="submit" class="addRegNumber btn blue">Add</button>
-
-                <div class="Button">
-                    <a href="/clearAll" <button class="btn" type="button"> <i class="fa fa-home"></i></button>resert</a>
-
-                </div>
+              <a href="/clearAll"><button type="button" class="btn">Resert</button></a>
+                 {{!-- <a href="/clearAll" class="btn"type="button">Resert</a> --}}
             </div>
         </form>
 
@@ -43,6 +41,8 @@
                 <option value="CJ">Paarl</option>
                 <option value="CA">CapeTown</option>
             </select>
+
+                <button type="submit" class="addRegNumber btn blue">filter</button>
         </div>
 
         <hr>
