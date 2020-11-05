@@ -40,27 +40,38 @@ const pool = new Pool({
     })
   })
 
-app.post('/registration', async function(req, res){
+app.post('/reg_numbers', async function(req, res){
 const regEntered = req.body.regName
+const reg =regEntered.toUpperCase()
 
-if(!regEntered){
+if(!reg){
   req.flash('info', 'registration is not entered');
   res.render('index');
 }
+// else if(){
+//   req.flash('info', 'number already exist');
+//   res.render('index');
+// }
 
-await registration.setRegNumbers(regEntered)
+await registration.setRegNumbers(reg)
 
 res.render('index',{
   list: await registration.listAll(),
-  message: await registration.regCheck(regEntered) 
+  message: await registration.regCheck(reg) 
   // registration.regCheck(regEntered)
 })
 
 })
 
-app.get('/reg_numbers',async function(req, res){
+app.get('/reg_numbers', async function(req, res){
+ var towns = req.query.town
 
-  res.redirect('index')
+ console.log(towns)
+var filterTowns = await registration.filter(towns)
+  res.render('index', {
+      list: filterTowns
+  });
+
 })
 
 app.get('/clearAll',async function(req, res) {
@@ -69,7 +80,7 @@ app.get('/clearAll',async function(req, res) {
     res.redirect("/")
   } 
   catch (err) {
-    console.log({err});
+    // console.log({err});
     res.redirect("/")
   }
 

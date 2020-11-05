@@ -20,7 +20,7 @@ create table registration_numbers(
 --  table registration_numbers;
 --  id | regnumbers | allreg_id 
 -- ----+------------+-----------
---   1 | cy 123123  |          
---   2 | cy 123123  |          
---   3 | cy 123123  |          
+--   1 | cy 123123  |     2     
+--   2 | ca 123123  |      1    
+--   3 | cj 123123  |      3    
 -- (3 rows)

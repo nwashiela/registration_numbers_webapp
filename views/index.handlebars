@@ -21,34 +21,34 @@
         </div>
         {{/if}}
         <br>
-        <form action="/registration" method="POST">
-            <input type="text" class="regNumberEntered" name="regName" placeholder="enter regnumber">
+        <form action="/reg_numbers" method="POST">
+            <input maxlength="10`" type="text" class="regNumberEntered" name="regName" placeholder="enter regnumber">
             <button type="submit" class="addRegNumber btn blue">Add</button>
 
 
             <div class="button">
-              <a href="/clearAll"><button type="button" class="btn">Resert</button></a>
-                 {{!-- <a href="/clearAll" class="btn"type="button">Resert</a> --}}
+                <a href="/clearAll"><button type="button" class="btn">Resert</button></a>
+                {{!-- <a href="/clearAll" class="btn"type="button">Resert</a> --}}
             </div>
         </form>
 
-        <div class="filter">
-            <strong>Select Town:</strong>
+        <form action="/reg_numbers" method="GET">
+            <div class="filter">
+                <strong>Select Town:</strong>
 
-            <select name="town" id="numbers">
-                <option value="all">selectAll</option>
-                <option value="CY">Bellville</option>
-                <option value="CJ">Paarl</option>
-                <option value="CA">CapeTown</option>
-            </select>
+                <select name="town" id="numbers" class="tabs">
+                    <option name='town' value="all">selectAll</option>
+                    <option name='town' value="2">Bellville</option>
+                    <option name='town' value="3">Paarl</option>
+                    <option name='town' value="1">CapeTown</option>
+                </select>
 
                 <button type="submit" class="addRegNumber btn blue">filter</button>
-        </div>
+            </div>
 
-        <hr>
-        <!-- <i>Reg numbers to be added here...</i> -->
-
-        {{!-- <ul> --}}
+            <hr>
+           
+        </form>
         {{#each list}}
         {{!-- <li> --}}
         <div class="regNumbers">
@@ -56,12 +56,16 @@
         </div>
         {{!-- </li> --}}
         {{/each}}
-        {{!-- </ul> --}}
-        {{!-- <div class="regNumber">
-                CY 124-245
-            </div> --}}
+  
 
+    {{#each filterEach}}
+    {{!-- <li> --}}
+    <div class="regNumbers">
+        {{regnumbers}}
     </div>
+    {{!-- </li> --}}
+    {{/each}}
+      </div>
 </body>
 
 </html>
