@@ -48,12 +48,10 @@ if(!reg){
   req.flash('info', 'registration is not entered');
   res.render('index');
 }
-// else if(){
-//   req.flash('info', 'number already exist');
-//   res.render('index');
-// }
 
-await registration.setRegNumbers(reg)
+
+var add = await registration.setRegNumbers(reg)
+req.flash('info', add);//templating message
 
 res.render('index',{
   list: await registration.listAll(),
@@ -86,7 +84,7 @@ app.get('/clearAll',async function(req, res) {
 
 })
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3030;
   app.listen(PORT,function(){
-      console.log('App starting on port',PORT);
+    console.log('App starting on port',PORT);
   })
