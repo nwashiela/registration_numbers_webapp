@@ -10,7 +10,7 @@ create table registration_numbers(
         foreign key(allReg_id) references town(id)
 );
 
- insert into town (town_names, start_with) values ("Bellville", "CY");
+ insert into town (town_names, start_with) values ('Bellville', 'CY');
 
  insert into town (town_names, start_with) values ('Paarl', 'CJ');
 

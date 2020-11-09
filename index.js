@@ -1,90 +1,51 @@
-const express = require('express');
-const exphbs = require('express-handlebars');
-const flash = require('express-flash');
-const session = require('express-session');
-const bodyParser = require('body-parser');
+const express = require("express");
+const exphbs = require("express-handlebars");
+const flash = require("express-flash");
+const session = require("express-session");
+const bodyParser = require("body-parser");
 const pg = require("pg");
 const Pool = pg.Pool;
-const Reg = require('./registration')
+const Reg = require("./registration");
+const Routes = require("./routes");
 
-const app = express()
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
+const app = express();
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
-app.use(session({
+app.use(
+  session({
     secret: "<add a secret string here>",
     resave: false,
-    saveUninitialized: true
-  }));
+    saveUninitialized: true,
+  })
+);
 
-  app.use(flash());
+app.use(flash());
 
-  app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg1212@localhost:5432/registration';
+const connectionString =
+  process.env.DATABASE_URL ||
+  "postgresql://codex:pg1212@localhost:5432/registration";
 
 const pool = new Pool({
-    connectionString
-  })
-  const registration = Reg(pool)
+  connectionString,
+});
+const registration = Reg(pool);
+const catchReg = Routes(registration);
 
-  app.use(express.static('public'))
+app.use(express.static("public"));
 
-  app.get('/', async function(req,res){
+app.get("/", catchReg.dFRouts);
 
-    res.render('index', {
-      list: await registration.listAll(),
-      messages: "" 
-      // registration.regCheck(regEntered)
-    })
-  })
+app.post("/reg_numbers", catchReg.pstMessageList);
 
-app.post('/reg_numbers', async function(req, res){
-const regEntered = req.body.regName
-const reg =regEntered.toUpperCase()
+app.get("/reg_numbers", catchReg.filterTown);
 
-if(!reg){
-  req.flash('info', 'registration is not entered');
-  res.render('index');
-}
-
-
-var add = await registration.setRegNumbers(reg)
-req.flash('info', add);//templating message
-
-res.render('index',{
-  list: await registration.listAll(),
-  message: await registration.regCheck(reg) 
-  // registration.regCheck(regEntered)
-})
-
-})
-
-app.get('/reg_numbers', async function(req, res){
- var towns = req.query.town
-
- console.log(towns)
-var filterTowns = await registration.filter(towns)
-  res.render('index', {
-      list: filterTowns
-  });
-
-})
-
-app.get('/clearAll',async function(req, res) {
-  try {
-    await registration.deleleBtn();
-    res.redirect("/")
-  } 
-  catch (err) {
-    // console.log({err});
-    res.redirect("/")
-  }
-
-})
+app.get("/clearAll",catchReg.clear);
 
 const PORT = process.env.PORT || 3030;
-  app.listen(PORT,function(){
-    console.log('App starting on port',PORT);
-  })
+app.listen(PORT, function () {
+  console.log("App starting on port", PORT);
+});

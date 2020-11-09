@@ -1,37 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="container">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/registration_number.css">
-</head>
+    <div class="row header">
+        <h1>REGISTRATION NUMBERS</h1>
+    </div>
 
-<body>
-    <div class="container">
-
-        <div class="color">
-            <h1>REGISTRATION NUMBERS</h1>
-        </div>
-
-        {{#if messages.info}}
-        <div class="messages">
-            <h2>{{messages.info}}</h2>
-        </div>
-        {{/if}}
-        <br>
+    {{#if messages.info}}
+    <div class="messages">
+        <span>{{messages.info}}</span>
+    </div>
+    {{/if}}
+    <div class="row f1">
         <form action="/reg_numbers" method="POST">
-            <input maxlength="10`" type="text" class="regNumberEntered" name="regName" placeholder="enter regnumber">
-            <button type="submit" class="addRegNumber btn blue">Add</button>
+            <input maxlength="10`" type="text" class="five columns" name="regName" placeholder="enter regnumber">
 
-
-            <div class="button">
-                <a href="/clearAll"><button type="button" class="btn">Resert</button></a>
-                {{!-- <a href="/clearAll" class="btn"type="button">Resert</a> --}}
-            </div>
+            <button type="submit" class="two columns">Add</button>
         </form>
+    </div>
 
+    <div class="row">
         <form action="/reg_numbers" method="GET">
             <div class="filter">
                 <strong>Select Town:</strong>
@@ -40,23 +26,25 @@
                     <option name='town' value="all">selectAll</option>
                     <option name='town' value="2">Bellville</option>
                     <option name='town' value="3">Paarl</option>
-                    <option name='town' value="1">CapeTown</option>
+                    <option name='town' value="1">Cape Town</option>
                 </select>
 
                 <button type="submit" class="addRegNumber btn blue">filter</button>
             </div>
-
-            <hr>
-           
         </form>
-        {{#each list}}
-        {{!-- <li> --}}
-        <div class="regNumbers">
-            {{regnumbers}}
-        </div>
-        {{!-- </li> --}}
-        {{/each}}
-  
+    </div>
+    <div class="button">
+        <a href="/clearAll">Reset</a>
+    </div>
+    <hr>
+    {{#each list}}
+    {{!-- <li> --}}
+    <div class="regNumbers">
+        {{regnumbers}}
+    </div>
+    {{!-- </li> --}}
+    {{/each}}
+
 
     {{#each filterEach}}
     {{!-- <li> --}}
@@ -65,7 +53,4 @@
     </div>
     {{!-- </li> --}}
     {{/each}}
-      </div>
-</body>
-
-</html>
+</div>

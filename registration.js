@@ -66,7 +66,7 @@ module.exports = function (pool) {
   
     async function filter(town_tag) {
       if (town_tag === "all") {
-        let All = await pool.query("select * from registration_numbers");
+        let All = await pool.query("select regnumbers from registration_numbers");
         return All.rows;
       } else {
         let selected_id = await pool.query("select regnumbers from registration_numbers where allReg_id =$1",[town_tag]);
