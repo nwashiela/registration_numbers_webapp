@@ -53,13 +53,20 @@ describe("registration_numbers_webapp", function () {
       filterAllTowns
     );
   });
-  // it("should be able to filterfor each  ", async function () {
-  //   await instReg.setRegNumbers("CJ 23451");
-  //   await instReg.setRegNumbers("CJ 87523");    assert.deep-equal([ { regnumbers: 'CA 1230' },
-  //   { regnumbers: 'CA 5649' },
-  //   { regnumbers: 'CA 5469' } ], filterTown);
+  it("should be able to filterfor each  ", async function () {
+    await instReg.setRegNumbers("CA 12378");
+    await instReg.setRegNumbers("CY 45685");
+    await instReg.setRegNumbers("CJ 67925");
+    await instReg.setRegNumbers("CA 75396");
 
-  //   assert.deep-equal([ { regnumbers: 'CY 23451' }, { regnumbers: 'CY 87523' } ], filterT)
-  // })
+    var filterAllTowns = await instReg.filter("1");
+    console.log(filterAllTowns)
+    assert.deepEqual(
+      [ { regnumbers: 'CJ 67925' } ]
+    ,filterAllTowns)
+  })
 
+	after(function() {
+		pool.end();
+	})
 })
