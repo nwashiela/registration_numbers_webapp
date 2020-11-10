@@ -1,1 +1,1 @@
-https://travis-ci.org/nwashiela/registration_numbers_webapp.svg?branch=main
+[![Build Status](https://travis-ci.org/nwashiela/registration_numbers_webapp.svg?branch=main)](https://travis-ci.org/nwashiela/registration_numbers_webapp)
