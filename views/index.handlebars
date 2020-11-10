@@ -9,33 +9,40 @@
         <span>{{messages.info}}</span>
     </div>
     {{/if}}
+
+    <p>Only CA,CJ and CY requered in this app</p>
+
     <div class="row f1">
         <form action="/reg_numbers" method="POST">
-            <input maxlength="10`" type="text" class="five columns" name="regName" placeholder="enter regnumber">
+            <input maxlength="10`" type="text" class="six columns" name="regName" placeholder="enter regnumber">
 
-            <button type="submit" class="two columns">Add</button>
+            <button type="submit" class="two columns btn ">Add</button>
         </form>
     </div>
 
-    <div class="row">
+    <div class="row f2">
         <form action="/reg_numbers" method="GET">
-            <div class="filter">
+            <div class=" filter">
                 <strong>Select Town:</strong>
-
-                <select name="town" id="numbers" class="tabs">
+                <select name="town" id="numbers" class=" tabs">
                     <option name='town' value="all">selectAll</option>
                     <option name='town' value="2">Bellville</option>
                     <option name='town' value="3">Paarl</option>
                     <option name='town' value="1">Cape Town</option>
                 </select>
-
-                <button type="submit" class="addRegNumber btn blue">filter</button>
+ <button type="submit" class=" btn">filter</button>
             </div>
+            
+                
+           
         </form>
     </div>
-    <div class="button">
-        <a href="/clearAll">Reset</a>
+
+    <div class="button btn">
+        <a href="/clearAll" type="reset">Reset</a>
     </div>
+
+
     <hr>
     {{#each list}}
     {{!-- <li> --}}

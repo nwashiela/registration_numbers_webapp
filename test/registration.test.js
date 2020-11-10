@@ -31,7 +31,6 @@ describe("registration_numbers_webapp", function () {
     ]);
   });
 
-  
   it("should be able filter All towns", async function () {
     await instReg.setRegNumbers("CA 12378");
     await instReg.setRegNumbers("CY 45685");
@@ -39,9 +38,9 @@ describe("registration_numbers_webapp", function () {
     await instReg.setRegNumbers("CY 75396");
     await instReg.setRegNumbers("CA 67378");
     await instReg.setRegNumbers("CJ 45925");
-    
+
     var filterAllTowns = await instReg.filter("all");
-  
+
     assert.deepEqual(
       [
         { regnumbers: "CA 12378" },
@@ -54,20 +53,42 @@ describe("registration_numbers_webapp", function () {
       filterAllTowns
     );
   });
-  	it('should be able to filter town ', async function(){
-		await instReg.setRegNumbers('CA 123098');
-		await instReg.setRegNumbers('CA 564987');
-		await instReg.setRegNumbers('CA 546986');
-		await instReg.setRegNumbers('CJ 23451');
-		await instReg.setRegNumbers('CJ 87523');
+  it("should be able to filterfor each  ", async function () {
+    await instReg.setRegNumbers("CJ 23451");
+    await instReg.setRegNumbers("CJ 87523");
+    await instReg.setRegNumbers("CY 23451");
+    await instReg.setRegNumbers("CY 87523");
+    await instReg.setRegNumbers("CA 1230");
+    await instReg.setRegNumbers("CA 5649");
+    await instReg.setRegNumbers("CA 5469");
 
-		var filterTowns = await instReg.filter("1");
-		assert.deepEqual([
-			{regnumbers: 'CA 123098'},
-			{regnumbers: 'CA 564987'},
-			{regnumbers: 'CA 546986'}
-		],filterTowns)
-	  })
+    var filterTowns = await instReg.filter('1');
+    var filterTown = await instReg.filter('2');
+    var filterT = await instReg.filter('3');
+
+    assert.deepEqual([ { regnumbers: 'CJ 23451' }, { regnumbers: 'CJ 87523' } ], filterTowns);
+    assert.deepEqual([ { regnumbers: 'CA 1230' },
+    { regnumbers: 'CA 5649' },
+    { regnumbers: 'CA 5469' } ], filterTown);
+
+    assert.deepEqual([ { regnumbers: 'CY 23451' }, { regnumbers: 'CY 87523' } ], filterT);
+
+  });
+
+  it('should be able to delete all in regnumbers ', async function(){
+    await instReg.setRegNumbers("CJ 23451");
+    await instReg.setRegNumbers("CJ 87523");
+    await instReg.setRegNumbers("CY 23451");
+    await instReg.setRegNumbers("CY 87523");
+    await instReg.setRegNumbers("CA 1230");
+    await instReg.setRegNumbers("CA 5649");
+    await instReg.setRegNumbers("CA 5469");
+    await instReg.deleleBtn();
+
+    let removed = await instReg.listAll()
+    assert.deepEqual({},removed )
+
+  })
   after(function () {
     pool.end();
   });
