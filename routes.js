@@ -40,7 +40,6 @@ module.exports =  function getRoutes(registration) {
       await registration.deleleBtn();
       req.flash('success', 'successfully cleared the registration list')
       res.redirect("/reg_numbers");
-  
   }
   return {
     dFRouts,
