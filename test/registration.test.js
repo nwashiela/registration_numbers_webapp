@@ -53,11 +53,13 @@ describe("registration_numbers_webapp", function () {
       filterAllTowns
     );
   });
-  it("should be able to filterfor each  ", async function () {
-    await instReg.setRegNumbers("CJ 23451");
-    await instReg.setRegNumbers("CJ 87523");    assert.deep-equal([ { regnumbers: 'CA 1230' },
-    { regnumbers: 'CA 5649' },
-    { regnumbers: 'CA 5469' } ], filterTown);
+  // it("should be able to filterfor each  ", async function () {
+  //   await instReg.setRegNumbers("CJ 23451");
+  //   await instReg.setRegNumbers("CJ 87523");    assert.deep-equal([ { regnumbers: 'CA 1230' },
+  //   { regnumbers: 'CA 5649' },
+  //   { regnumbers: 'CA 5469' } ], filterTown);
 
-    assert.deep-equal([ { regnumbers: 'CY 23451' }, { regnumbers: 'CY 87523' } ], filterT
-    
+  //   assert.deep-equal([ { regnumbers: 'CY 23451' }, { regnumbers: 'CY 87523' } ], filterT)
+  // })
+
+})
