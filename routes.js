@@ -29,20 +29,18 @@ module.exports =  function getRoutes(registration) {
   async function filterTown(req, res) {
     var towns = req.query.town;
 
-    console.log(towns);
+    // console.log(towns);
     var filterTowns = await registration.filter(towns);
     res.render("index", {
       list: filterTowns,
     });
   }
   async function clear(req, res) {
-    try {
+   
       await registration.deleleBtn();
-      res.redirect("/");
-    } catch (err) {
-      // console.log({err});
-      res.redirect("/");
-    }
+      req.flash('success', 'successfully cleared the registration list')
+      res.redirect("/reg_numbers");
+  
   }
   return {
     dFRouts,

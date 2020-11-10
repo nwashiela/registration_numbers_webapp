@@ -29,7 +29,7 @@ module.exports = function (pool) {
      else{
        return "registration already exist"
      }
-     
+     return "successfully edded"
       }
       
   }
@@ -87,7 +87,8 @@ module.exports = function (pool) {
       // }
     }
     async function deleleBtn() {
-      await pool.query("delete from registration_numbers");
+     var clean = await pool.query("delete from registration_numbers");
+     return clean
     }
   
     return {

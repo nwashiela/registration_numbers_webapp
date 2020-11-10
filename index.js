@@ -45,7 +45,7 @@ app.get("/reg_numbers", catchReg.filterTown);
 
 app.get("/clearAll",catchReg.clear);
 
-const PORT = process.env.PORT || 3030;
+const PORT = process.env.PORT || 3010;
 app.listen(PORT, function () {
   console.log("App starting on port", PORT);
 });

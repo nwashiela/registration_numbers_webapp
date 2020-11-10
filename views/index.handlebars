@@ -4,17 +4,20 @@
         <h1>REGISTRATION NUMBERS</h1>
     </div>
 
-    {{#if messages.info}}
+    {{!-- {{#if messages.info}} --}}
     <div class="messages">
         <span>{{messages.info}}</span>
     </div>
-    {{/if}}
+    <div class="messagesSuccess">
+         {{messages.success}}
+    </div> 
+    {{!-- {{/if}} --}}
 
-    <p>Only CA,CJ and CY required in this app</p>
+    <p>Only CA,CJ and CY requered in this app</p>
 
     <div class="row f1">
         <form action="/reg_numbers" method="POST">
-            <input maxlength="10`" type="text" class="six columns" name="regName" placeholder="enter regnumber">
+            <input maxlength="10`" type="text" class="seven columns" name="regName" placeholder="enter regnumber">
 
             <button type="submit" class="two columns btn ">Add</button>
         </form>
@@ -38,9 +41,9 @@
         </form>
     </div>
 
-    <div class="button btn">
-        <a href="/clearAll" type="reset">Reset</a>
-    </div>
+    {{!-- <div class="resetBtn"> --}}
+        <a href="/clearAll"><button class="resetBtn" on type="button">Reset</button></a>
+    {{!-- </div> --}}
 
 
     <hr>

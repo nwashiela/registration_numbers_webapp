@@ -66,12 +66,15 @@ describe("registration_numbers_webapp", function () {
     var filterTown = await instReg.filter('2');
     var filterT = await instReg.filter('3');
 
-    assert.deepEqual([ { regnumbers: 'CJ 23451' }, { regnumbers: 'CJ 87523' } ], filterTowns);
-    assert.deepEqual([ { regnumbers: 'CA 1230' },
-    { regnumbers: 'CA 5649' },
-    { regnumbers: 'CA 5469' } ], filterTown);
+    assert.deepequal( [
+      {
+       "regnumbers": "CY 23451"
+      },
+      {
+       "regnumbers": "CY 87523"
+      }], filterTown);
 
-    assert.deepEqual([ { regnumbers: 'CY 23451' }, { regnumbers: 'CY 87523' } ], filterT);
+    assert.deep-equal([ { regnumbers: 'CY 23451' }, { regnumbers: 'CY 87523' } ], filterT);
 
   });
 
