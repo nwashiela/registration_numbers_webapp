@@ -54,16 +54,37 @@ describe("registration_numbers_webapp", function () {
     );
   });
   it("should be able to filterfor each  ", async function () {
-    await instReg.setRegNumbers("CA 12378");
-    await instReg.setRegNumbers("CY 45685");
-    await instReg.setRegNumbers("CJ 67925");
-    await instReg.setRegNumbers("CA 75396");
+    await instReg.setRegNumbers("CJ 23451");
+    await instReg.setRegNumbers("CJ 87523");
+    await instReg.setRegNumbers("CY 23451");
+    await instReg.setRegNumbers("CY 87523");
+    await instReg.setRegNumbers("CA 1230");
+    await instReg.setRegNumbers("CA 5649");
+    await instReg.setRegNumbers("CA 5469");
 
-    var filterAllTowns = await instReg.filter("1");
-    console.log(filterAllTowns)
-    assert.deepEqual(
-      [ { regnumbers: 'CJ 67925' } ]
-    ,filterAllTowns)
+    var filterTowns = await instReg.filter(2);
+ console.log(filterTowns)
+    assert.deepEqual([
+       { regnumbers: 'CA 1230' },
+       { regnumbers: 'CA 5469' }, 
+       { regnumbers: 'CA 5469' } 
+      ], filterTowns);
+
+  });
+
+  it('should be able to delete all in regnumbers ', async function(){
+    await instReg.setRegNumbers("CJ 23451");
+    await instReg.setRegNumbers("CJ 87523");
+    await instReg.setRegNumbers("CY 23451");
+    await instReg.setRegNumbers("CY 87523");
+    await instReg.setRegNumbers("CA 1230");
+    await instReg.setRegNumbers("CA 5649");
+    await instReg.setRegNumbers("CA 5469");
+    await instReg.deleleBtn();
+
+    let removed = await instReg.listAll()
+    assert.deepEqual({},removed )
+
   })
 
 	after(function() {
