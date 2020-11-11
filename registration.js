@@ -2,14 +2,10 @@ module.exports = function (pool) {
   async function getTownId(number) {
     var substr = number.substring(0, 2);
 
-    console.log(substr);
-
     var check = await pool.query("select id from town where start_with = $1", [
       substr,
     ]);
     // var results = await pool.query(chregistrationeck, [substring])
-
-    console.log(check.rows);
 
     return check.rows[0].id;
   }
@@ -43,7 +39,6 @@ module.exports = function (pool) {
     const sqlList = await pool.query(
       "select regnumbers from registration_numbers"
     );
-    console.log(sqlList);
     return sqlList.rows;
   }
 
@@ -60,7 +55,6 @@ module.exports = function (pool) {
       regList.push(regEntered);
     }
 
-    console.log(regList);
     return regList;
     // }
   }
@@ -74,8 +68,6 @@ module.exports = function (pool) {
         "select regnumbers from registration_numbers where allReg_id =$1",
         [town_tag]
       );
-
-      console.log(selected_id.rows);
       return selected_id.rows;
     }
     // if(town_tag === 'CY'){

@@ -63,7 +63,7 @@ describe("registration_numbers_webapp", function () {
     await instReg.setRegNumbers("CA 5469");
 
     var filterTowns = await instReg.filter(2);
- console.log(filterTowns)
+//  console.log(filterTowns)
     assert.deepequal([
        { regnumbers: 'CA 1230' },
        { regnumbers: 'CA 5469' }, 
