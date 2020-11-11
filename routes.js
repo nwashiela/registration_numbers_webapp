@@ -6,7 +6,7 @@ module.exports =  function getRoutes(registration) {
       messages: "",
     });
   }
-  async function pstMessageList(req, res) {
+   async function pstMessageList(req, res) {
     const regEntered = req.body.regName;
     const reg = regEntered.toUpperCase();
 

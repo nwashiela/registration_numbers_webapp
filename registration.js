@@ -21,11 +21,17 @@ module.exports = function (pool) {
         );
         // return townId.rowCount
       } else {
-        return "registration already exist";
+
+        return {
+          message:"registration already exist",
+        color:'error'
       }
-      return "successfully edded";
+      }
+      return{message: "successfully edded",
+      color:'sucess'
     }
   }
+}
   async function checkReg(reg) {
     let rNumber = await pool.query(
       "select regnumbers from registration_numbers where regnumbers = $1",

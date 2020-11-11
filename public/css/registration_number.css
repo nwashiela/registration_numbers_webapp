@@ -50,7 +50,12 @@ body {
 }
 .messagesSuccess{
   color: green;
-
+}
+.error{
+  color: red;
+}
+.sucess{
+  color: green;
 }
 .header>h1 {
   font-size: 50px;
