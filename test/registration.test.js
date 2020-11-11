@@ -108,8 +108,8 @@ describe("registration_numbers_webapp", function () {
     await instReg.setRegNumbers("CA 5469");
     await instReg.deleleBtn();
 
-    let removed = await instReg.listAll();
-    assert.deepEqual({}, removed);
+   
+    assert.deepEqual({}, await instReg.listAll());
   });
 
   after(function () {
