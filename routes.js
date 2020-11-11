@@ -29,7 +29,6 @@ module.exports =  function getRoutes(registration) {
   async function filterTown(req, res) {
     var towns = req.query.town;
 
-    // console.log(towns);
     var filterTowns = await registration.filter(towns);
     res.render("index", {
       list: filterTowns,
