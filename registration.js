@@ -27,7 +27,8 @@ module.exports = function (pool) {
         color:'error'
       }
       }
-      return{message: "successfully edded",
+      return {
+        message: "successfully edded",
       color:'sucess'
     }
   }

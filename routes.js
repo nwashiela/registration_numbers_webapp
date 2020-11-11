@@ -17,8 +17,11 @@ module.exports =  function getRoutes(registration) {
       req.flash("info", "invalid registration");
     } else {
       var add = await registration.setRegNumbers(reg);
-      req.flash("info", add); //templating message
+      req.flash("info", add.message); //templating message
     }
+      var add = await registration.setRegNumbers(reg);
+      req.flash("color", add.message); //templating message
+  
 
     res.render("index", {
       list: await registration.listAll(),
@@ -36,9 +39,9 @@ module.exports =  function getRoutes(registration) {
   }
   async function clear(req, res) {
    
-      await registration.deleleBtn();
-      req.flash('success', 'successfully cleared the registration list')
-      res.redirect("/reg_numbers");
+    await registration.deleleBtn();
+    req.flash('success', 'successfully cleared the registration list')
+    res.redirect("/reg_numbers");
   }
   return {
     dFRouts,

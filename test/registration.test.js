@@ -109,7 +109,7 @@ describe("registration_numbers_webapp", function () {
     await instReg.deleleBtn();
 
    
-    assert.equal([], await instReg.listAll());
+    assert.deepEqual([], await instReg.listAll());
   });
 
   after(function () {
