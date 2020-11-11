@@ -9,7 +9,6 @@ module.exports = function (pool) {
 
     return check.rows[0].id;
   }
-
   async function setRegNumbers(number) {
     const townId = await getTownId(number);
 
@@ -95,6 +94,6 @@ module.exports = function (pool) {
     deleleBtn,
     getTownId,
     filter,
-    checkReg,
+    checkReg
   };
 };
