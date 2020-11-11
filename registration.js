@@ -68,6 +68,7 @@ module.exports = function (pool) {
         "select regnumbers from registration_numbers where allReg_id =$1",
         [town_tag]
       );
+      // console.log(selected_id.rows);
       return selected_id.rows;
     }
     // if(town_tag === 'CY'){
