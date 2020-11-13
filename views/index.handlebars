@@ -3,68 +3,71 @@
     <div class="row header">
         <h1>REGISTRATION NUMBERS</h1>
     </div>
+    <div class="star">
+        {{#if messages}}
+        <span class="info">{{messages.info}} </span>
 
-    
-    <div class="messages">
-        <span>{{messages.info}}</span>
+        {{/if}}
+
     </div>
-    <div class="sucess">
-        {{messages.color}}
-    </div>
-    
+
+
+
     <div class="messagesSuccess">
         {{messages.success}}
     </div>
-    
-
-    <p>Only CA,CJ and CY requered in this app</p>
-
-    <div class="row f1">
-        <form action="/reg_numbers" method="POST">
-            <input maxlength="10`" type="text" class="seven columns" name="regName" placeholder="enter regnumber">
-
-            <button type="submit" class="two columns btn ">Add</button>
-        </form>
-    </div>
-
-    <div class="row f2">
-        <form action="/reg_numbers" method="GET">
-            <div class=" filter">
-                <strong>Select Town:</strong>
-                <select name="town" id="numbers" class=" tabs">
-                    <option name='town' value="all">selectAll</option>
-                    <option name='town' value="2">Bellville</option>
-                    <option name='town' value="3">Paarl</option>
-                    <option name='town' value="1">Cape Town</option>
-                </select>
-                <button type="submit" class=" btn">filter</button>
-            </div>
 
 
 
-        </form>
-    </div>
+<p>Only CA,CJ and CY requered in this app</p>
 
-    {{!-- <div class="resetBtn"> --}}
-    <a href="/clearAll"><button class="resetBtn" on type="button">Reset</button></a>
-    {{!-- </div> --}}
+<div class="row f1">
+    <form action="/reg_numbers" method="POST">
+        <input maxlength="10`" type="text" class="seven columns" name="regName" placeholder="enter regnumber">
+
+        <button type="submit reg" class="two columns btn ">Add</button>
+    </form>
+</div>
+
+<div class="row f2">
+    <form action="/reg_numbers" method="GET">
+        <div class=" filter">
+            <strong>Select Town:</strong>
+            <select name="town" id="numbers" class=" tabs">
+                <option name='town' value="all">selectAll</option>
+                <option name='town' value="2">Bellville</option>
+                <option name='town' value="3">Paarl</option>
+                <option name='town' value="1">Cape Town</option>
+            </select>
+            <button type="submit" class=" btn">filter</button>
+        </div>
 
 
-    <hr>
-    {{#each list}}
-    {{!-- <li> --}}
-    <div class="regNumbers">
-        {{regnumbers}}
-    </div>
-    {{!-- </li> --}}
-    {{/each}}
+
+    </form>
+</div>
+
+{{!-- <div class="resetBtn"> --}}
+<a href="/clearAll"><button class="resetBtn" on type="button">Reset</button></a>
+{{!-- </div> --}}
 
 
-    {{#each filterEach}}
-    {{!-- <li> --}}
-    <div class="regNumbers">
-        {{regnumbers}}
-    </div>
-    {{!-- </li> --}}
-    {{/each}}
+<hr>
+{{#each list}}
+{{!-- <li> --}}
+<div class="regNumbers">
+    {{regnumbers}}
+</div>
+{{!-- </li> --}}
+{{/each}}
+
+
+{{#each filterEach}}
+{{!-- <li> --}}
+<div class="regNumbers">
+    {{regnumbers}}
+</div>
+{{!-- </li> --}}
+{{/each}}
+</div>
 </div>

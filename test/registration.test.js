@@ -6,13 +6,16 @@ const Pool = pg.Pool;
 const connectionString =
   process.env.DATABASE_URL ||
   "postgresql://codex:pg1212@localhost:5432/test.registration";
+
 const pool = new Pool({
   connectionString,
 });
 describe("registration_numbers_webapp", function () {
+
   beforeEach(async function () {
     await pool.query("delete from registration_numbers");
   });
+
   let instReg = registration(pool);
 
   it("should insert into registration", async function () {
@@ -67,6 +70,7 @@ describe("registration_numbers_webapp", function () {
       await instReg.filter("2")
     );
   });
+
   it("should be able to filter for Cape Town ", async function () {
     await instReg.setRegNumbers("CJ 23451");
     await instReg.setRegNumbers("CJ 87523");
@@ -82,6 +86,7 @@ describe("registration_numbers_webapp", function () {
       
     );
   });
+  
   it("should be able to filter for paarl", async function () {
     await instReg.setRegNumbers("CJ 23451");
     await instReg.setRegNumbers("CJ 87523");

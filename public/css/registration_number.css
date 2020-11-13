@@ -1,48 +1,10 @@
-/* body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1em;
-  background-color: rgba(128, 128, 128, 0.377);
-  padding-left: 35em;
-  padding-right: 38em;
 
-}
-
-h1 {
-  color: black;
-}
-
-.regNumberEntered {
-  padding: 1.2em;
-  border-radius: 1.2em;
-  font-size: 2em;
-  background-color: rgba(255, 255, 0, 0.76);
-}
-
-
-
-.blue {
-  background-color: rgba(255, 255, 0, 0.767);
-}
-
-.message {
-  height: 1em;
-  font-weight: bold;
-  color: crimson;
-}
-
-
-select[id=cars]{
-    padding: 1.2em;
-    width: 20%;
-}
-h2{
-  color: red;
-} */
-body {
+body{
   background-image: url('../image/regiIMG.jpeg'),url('paper.gif');
   background-color: #cccccc;
   background-size: cover;
   background-repeat: no-repeat;
+  font-size: 1.9em;
 }
 
 .header {
@@ -51,12 +13,18 @@ body {
 .messagesSuccess{
   color: green;
 }
-span {
+.star{
+  font-size: 1.10em;
+  border: 0px;
+}
+.reg{
+  margin-top: 17px;
+}
+.info{
   color: red;
 }
-.sucess{
-  color: green;
-}
+
+
 .header>h1 {
   font-size: 50px;
   font-weight: 900;
@@ -106,3 +74,4 @@ strong{
   background-color: rgba(255, 255, 0, 0.89);
   font-size: 1.2em;
 }
+

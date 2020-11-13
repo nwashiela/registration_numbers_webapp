@@ -15,13 +15,21 @@ module.exports =  function getRoutes(registration) {
       res.render("index");
     } else if (!/C[AYJ] \d{3,6}$/.test(reg)) {
       req.flash("info", "invalid registration");
-    } else {
+    } else  {
+      
       var add = await registration.setRegNumbers(reg);
-      req.flash("info", add.message); //templating message
-    }
-      var add = await registration.setRegNumbers(reg);
-      req.flash("color", add.message); //templating message
+   //   var checking = await registration.check(reg)
+     
+      if (add === false) {
+        req.flash("info", "registration already exist");
+
+      } 
+      req.flash("success", add) //templating message
   
+    }
+     
+  
+
 
     res.render("index", {
       list: await registration.listAll(),
