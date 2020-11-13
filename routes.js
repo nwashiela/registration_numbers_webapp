@@ -19,7 +19,7 @@ module.exports =  function getRoutes(registration) {
       
       var add = await registration.setRegNumbers(reg);
    //   var checking = await registration.check(reg)
-     
+      console.log(add)
       if (add === false) {
         req.flash("info", "registration already exist");
 
