@@ -9,6 +9,7 @@ module.exports = function (pool) {
 
     return check.rows[0].id;
   }
+  
   async function setRegNumbers(number) {
     const townId = await getTownId(number);
 
@@ -18,21 +19,18 @@ module.exports = function (pool) {
         await pool.query(
           "insert into registration_numbers(regnumbers, allreg_id) values ($1, $2)",
           [number, townId]
+         
         );
+        return "successfully edded";
         // return townId.rowCount
       } else {
-
-        return {
-          message:"registration already exist",
-        color:'error'
+        // return  "registration already exist"
+        return false;
       }
-      }
-      return {
-        message: "successfully edded",
-      color:'sucess'
+    
     }
   }
-}
+
   async function checkReg(reg) {
     let rNumber = await pool.query(
       "select regnumbers from registration_numbers where regnumbers = $1",
@@ -101,6 +99,6 @@ module.exports = function (pool) {
     deleleBtn,
     getTownId,
     filter,
-    checkReg
+    checkReg,
   };
 };
