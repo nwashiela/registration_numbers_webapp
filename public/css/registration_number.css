@@ -62,7 +62,8 @@ input[type="text"] {
   background-color: white;
 }
 a{
-  color: black;
+
+  color: rgb(162, 32, 173);
 }
 p{
   color:black;
@@ -74,4 +75,6 @@ strong{
   background-color: rgba(255, 255, 0, 0.89);
   font-size: 1.2em;
 }
-
+/* .resetBtn{
+  color: black;
+} */

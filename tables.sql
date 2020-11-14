@@ -9,12 +9,15 @@ create table registration_numbers(
         allReg_id int,
         foreign key(allReg_id) references town(id)
 );
+insert into town (town_names, start_with) values ('Cape Town', 'CA');
+insert into town (town_names, start_with) values ('Bellville', 'CY');
+insert into town (town_names, start_with) values ('Paarl', 'CJ');
 
- insert into town (town_names, start_with) values ('Bellville', 'CY');
+--  insert into town (town_names, start_with) values ('Bellville', 'CY');
 
- insert into town (town_names, start_with) values ('Paarl', 'CJ');
+--  insert into town (town_names, start_with) values ('Paarl', 'CJ');
 
- insert into town (town_names, start_with) values ('Cape Town', 'CA');
+--  insert into town (town_names, start_with) values ('Cape Town', 'CA');
 
 
 --  table registration_numbers;
