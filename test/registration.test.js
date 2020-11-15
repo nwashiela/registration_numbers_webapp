@@ -117,6 +117,14 @@ describe("registration_numbers_webapp", function () {
     assert.deepEqual([], await instReg.listAll());
   });
 
+  it("should be able not to add the same rigistration number", async function () {
+    await instReg.setRegNumbers("CJ 23451");
+    await instReg.setRegNumbers("CJ 23451");
+
+    assert.deepEqual(
+      [{regnumbers: 'CJ 23451'}], await instReg.listAll(1));
+  });
+
   after(function () {
     pool.end();
   });
